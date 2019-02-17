@@ -93,6 +93,10 @@ public class OI {
   public double getRightDrive() {
     return stick.getY(Hand.kRight);
   }
+
+  public boolean boostMode() {
+    return stick.getRawButton(9) || stick.getRawButton(10);
+  }
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.

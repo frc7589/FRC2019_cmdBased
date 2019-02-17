@@ -28,7 +28,12 @@ public class BaseMotorCmd extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.basemotor.run(Robot.oi.getLeftDrive(),Robot.oi.getRightDrive());
+    if (Robot.oi.boostMode()) {
+      Robot.basemotor.runBoosted(Robot.oi.getLeftDrive(),Robot.oi.getRightDrive());
+    }
+    else {
+      Robot.basemotor.run(Robot.oi.getLeftDrive(),Robot.oi.getRightDrive());
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
